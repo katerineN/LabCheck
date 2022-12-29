@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка лабораторной работы</title>
+    <meta charset="UTF-8"/>
+    <script src="src/index.js" type="module"></script>
+    <link href="styles/app.css" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    th, td{
+        padding: 10px 20px;
+        border: 1px solid #000;
+    }
+</style>
+
+<body>
+
+<h1>Проверка лабораторной работы</h1>
+
+</body>
+
+<div class="all">
+    <div id="addForm" class = "deladd">
+        <form>
+            <label for="lab">Лабораторная номер</label>
+            <input type="text" id="lab" placeholder="1">
+        </form>
+
+        <form>
+            <label for="name">Фамилия и имя</label>
+            <input type="text" id="name" placeholder="Иванов Иван">
+        </form>
+
+        <form>
+            <label for="count">Количество заданий в лабораторной</label>
+            <input type="text" id="count" placeholder="4">
+        </form>
+
+        <button id="addButtonTasks">
+            Добавить задания
+        </button>
+
+        <button id="addButtonSt">
+            Добавить студента
+        </button>
+
+        <form>
+            <label for="deleteSt">Номер студента</label>
+            <input type="text" id="deleteSt" placeholder="10">
+        </form>
+
+        <button id="deleteButton">
+            Удалить студента
+        </button>
+
+        <button id="sortButton">
+            Сортировать по баллам
+        </button>
+
+        <button id="histButton">
+            Посторить круговую гистограмму
+        </button>
+    </div>
+
+    <div id="tableDiv">
+        <table id="table">
+            <caption>Таблица лабораторной №</caption>
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>ФИ</th>
+                <th>Задание №1</th>
+                <th>Задание №2</th>
+                <th>Задание №3</th>
+                <th>Задание №4</th>
+                <th>Баллы</th>
+            </tr>
+            </thead>
+            <tbody id = "tableBody">
+            <tr><td>1</td><td>Иванов Иван</td><td>4</td><td>3</td><td>2</td><td>2</td><td>2.75</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <canvas id="myCanvas"></canvas>
+    </div>
+
+</div>
+
+</html>
