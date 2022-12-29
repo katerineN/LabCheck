@@ -20,7 +20,7 @@ class Table {
         this.arr.push(stud);
         this.lastID++;
     }
-    DeleteOrderById(id)
+    DeleteStudentById(id)
     {
         const ind = this.arr.findIndex(el => el.id == id);
         if (ind!=-1) this.arr.splice(ind, 1);

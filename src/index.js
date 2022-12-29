@@ -10,7 +10,7 @@ function setup() {
     document.getElementById('addButtonSt').onclick = addSt;
     //document.getElementById('addButtonTasks').onclick = addTasks;
     document.getElementById('addButtonTasks').onclick = add;
-    //document.getElementById('deleteButton').onclick = deleteOrder;
+    document.getElementById('deleteButton').onclick = deleteStudent;
     //document.getElementById('sortButton').onclick = sortPoints;
     //document.getElementById('histButton').onclick = hist;
 }
@@ -134,9 +134,9 @@ function addSt(){
     redrawTable();
 }
 
-function deleteOrder(){
-    const deleteId = Number(document.getElementById('deleteId').value);
-    table.DeleteOrderById(deleteId);
+function deleteStudent(){
+    const deleteId = Number(document.getElementById('deleteSt').value);
+    table.DeleteStudentById(deleteId);
     redrawTable();
 }
 
