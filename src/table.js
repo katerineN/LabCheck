@@ -1,5 +1,5 @@
 class Lab{
-    constructor(id, name, task1, task2=0, task3=0, task4=0, points) {
+    constructor(id, name, task1, task2=0, task3=0, task4=0, points, avgPoints) {
         this.id = id;
         this.name = name;
         this.task1 = task1;
@@ -7,6 +7,7 @@ class Lab{
         this.task3 = task3;
         this.task4 = task4;
         this.points = points;
+        this.avgPoints = avgPoints;
     }
 }
 

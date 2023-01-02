@@ -85,6 +85,9 @@ function createRow(l)
     let d7 = document.createElement('td');
     d7.innerHTML = l.points;
     row.appendChild(d7);
+    let d8 = document.createElement('td');
+    d8.innerHTML = l.avgPoint;
+    row.appendChild(d8);
     return row;
 }
 
@@ -99,37 +102,49 @@ function redrawTable()
 
 function addSt(){
     let f = 1;
+    const labnum = document.getElementById('lab').value;
+    const t = document.getElementById('table');
+    t.caption.innerHTML = "Таблица лабораторной № " + labnum;
     const name = document.getElementById('name').value;
     let count = Number(document.getElementById('count').value);
-    let task1, task2, task3, task4, points = 0.0;
+    let task1, task2, task3, task4, points, avgPoints = 0.0;
     switch (count) {
         case 1:
             task1 = Number(document.getElementById('task1').value);
-            Console.log(task1);
+            task2 = "-";
+            task3 = "-";
+            task4 = "-";
             points = task1;
+            avgPoints = task1;
             break;
         case 2:
             task1 = Number(document.getElementById('task1').value);
             task2 = Number(document.getElementById('task2').value);
-            points = (task1 + task2) / 2.0;
+            task3 = "-";
+            task4 = "-";
+            avgPoints = (task1 + task2) / 2.0;
+            points = task1 + task2;
             break;
         case 3:
             task1 = Number(document.getElementById('task1').value);
             task2 = Number(document.getElementById('task2').value);
             task3 = Number(document.getElementById('task3').value);
-            points = (task1 + task2 + task3) / 3.0;
+            task4 = "-";
+            avgPoints = (task1 + task2 + task3) / 3.0;
+            points = task1 + task2 + task3;
             break;
         case 4:
             task1 = Number(document.getElementById('task1').value);
             task2 = Number(document.getElementById('task2').value);
             task3 = Number(document.getElementById('task3').value);
             task4 = Number(document.getElementById('task3').value);
-            points = (task1 + task2 + task3 + task4) / 4.0;
+            avgPoints = (task1 + task2 + task3 + task4) / 4.0;
+            points = task1 + task2 + task3 + task4;
             break;
         default:
             Console.log('Error');
     }
-    let l = new Lab(table.lastID+1, name, task1, task2, task3, task4, points);
+    let l = new Lab(table.lastID+1, name, task1, task2, task3, task4, points, avgPoints);
     if (f) table.AddStudent(l);
     redrawTable();
 }
