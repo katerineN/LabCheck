@@ -11,7 +11,7 @@ function setup() {
     //document.getElementById('addButtonTasks').onclick = addTasks;
     document.getElementById('addButtonTasks').onclick = add;
     document.getElementById('deleteButton').onclick = deleteStudent;
-    //document.getElementById('sortButton').onclick = sortPoints;
+    document.getElementById('sortButton').onclick = sortPoints;
     //document.getElementById('histButton').onclick = hist;
 }
 
@@ -86,7 +86,7 @@ function createRow(l)
     d7.innerHTML = l.points;
     row.appendChild(d7);
     let d8 = document.createElement('td');
-    d8.innerHTML = l.avgPoint;
+    d8.innerHTML = l.avgPoints;
     row.appendChild(d8);
     return row;
 }

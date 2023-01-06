@@ -31,8 +31,8 @@ class Table {
     }
 }
 function compare(a, b) {
-    let p1 = Number(a);
-    let p2 = Number(b);
+    let p1 = Number(a.points);
+    let p2 = Number(b.points);
     if (p1<p2) {
         return -1;
     }
