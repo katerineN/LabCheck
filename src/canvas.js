@@ -1,4 +1,4 @@
-import {TimeCompare} from "../src/table";
+import {compare} from "../src/table";
 
 function drawLine(ctx, startX, startY, endX, endY,color){
     ctx.save();
@@ -38,7 +38,7 @@ class Barchart
         let iterKey = mapData.keys();
         for (let i = 0; i<mapData.size;i++)
             sortKey.push(iterKey.next().value);
-        sortKey = sortKey.sort(TimeCompare);
+        sortKey = sortKey.sort(compare);
 
         let maxValue = 0;
         for (let val of mapData.values()) { maxValue = Math.max(maxValue,val); }
@@ -75,17 +75,6 @@ class Barchart
             barIndex++;
         });
 
-        //маркеры по горизонтали 1
-        // gridValue = 1;
-        // while (gridValue <= mapData.size){
-        //     let gridY = canvasActualHeight * ( gridValue/mapData.size) + this.padding;
-        //     this.ctx.save();
-        //     this.ctx.fillStyle = this.gridColor;
-        //     this.ctx.font = "bold 10px Arial";
-        //     this.ctx.fillText(sortKey[gridValue-1], gridY-40 , 300);
-        //     this.ctx.restore();
-        //     gridValue+=this.gridScale;
-        // }
         //маркеры по горизонтали 2
         barIndex = 0;
         let y = canvasActualHeight + this.padding+15;

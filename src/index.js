@@ -12,7 +12,7 @@ function setup() {
     document.getElementById('addButtonTasks').onclick = add;
     document.getElementById('deleteButton').onclick = deleteStudent;
     document.getElementById('sortButton').onclick = sortPoints;
-    //document.getElementById('histButton').onclick = hist;
+    document.getElementById('histButton').onclick = hist;
 }
 
 //пыталась создать несколько сразу инпутов
@@ -45,14 +45,49 @@ function add(){
 
 let table = new Table();
 
-const myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
-let myBarchart = new Barchart(myCanvas);
+const myCanvas1 = document.getElementById("myCanvas1");
+myCanvas1.width = 300;
+myCanvas1.height = 300;
+let myBarchart1 = new Barchart(myCanvas1);
+
+const myCanvas2 = document.getElementById("myCanvas2");
+myCanvas2.width = 300;
+myCanvas2.height = 300;
+let myBarchart2 = new Barchart(myCanvas2);
+
+const myCanvas3 = document.getElementById("myCanvas3");
+myCanvas3.width = 300;
+myCanvas3.height = 300;
+let myBarchart3 = new Barchart(myCanvas3);
+
+const myCanvas4 = document.getElementById("myCanvas4");
+myCanvas4.width = 300;
+myCanvas4.height = 300;
+let myBarchart4 = new Barchart(myCanvas4);
 
 function hist()
 {
-    myBarchart.draw(OrderForeachTime());
+    let count = Number(document.getElementById('count').value);
+    for (let i = 1; i <= count; i++)
+    {
+        switch (i){
+            case 1:
+                myBarchart1.draw(orderTasks(i));
+                break;
+            case 2:
+                myBarchart2.draw(orderTasks(i));
+                break;
+            case 3:
+                myBarchart3.draw(orderTasks(i));
+                break;
+            case 4:
+                myBarchart4.draw(orderTasks(i));
+                break;
+            default:
+                Console.log('Error');
+                break;
+        }
+    }
 }
 
 function sortPoints()
@@ -155,17 +190,60 @@ function deleteStudent(){
     redrawTable();
 }
 
-function OrderForeachTime()
+function orderTasks(n)
 {
-    let map = new Map();
-    for (let i = 0; i< table.arr.length; i++)
-    {
-        let time = table.arr[i].time;
-        if (!map.has(time)) map.set(time,1);
-        else {
-            map.set(time,map.get(time)+1);
-        }
+    let map1 = new Map();
+    let map2 = new Map();
+    let map3 = new Map();
+    let map4 = new Map();
+    switch (n) {
+        case 1:
+            for (let i = 0; i < table.arr.length; i++)
+            {
+                let point1 = table.arr[i].task1;
+                if (!map1.has(point1)) map1.set(point1, 1);
+                else {
+                    map1.set(point1, map1.get(point1)+1);
+                }
+            }
+            return map1;
+            break;
+        case 2:
+            for (let i = 0; i< table.arr.length; i++)
+            {
+                let point = table.arr[i].task2;
+                if (!map2.has(point)) map2.set(point, 1);
+                else {
+                    map2.set(point, map2.get(point)+1);
+                }
+            }
+            return map2;
+            break;
+        case 3:
+            for (let i = 0; i< table.arr.length; i++)
+            {
+                let point = table.arr[i].task3;
+                if (!map3.has(point)) map3.set(point, 1);
+                else {
+                    map3.set(point, map3.get(point)+1);
+                }
+            }
+            return map3;
+            break;
+        case 4:
+            for (let i = 0; i< table.arr.length; i++)
+            {
+                let point = table.arr[i].task4;
+                if (!map4.has(point)) map4.set(point, 1);
+                else {
+                    map4.set(point, map4.get(point)+1);
+                }
+            }
+            return map4;
+            break;
+        default:
+            Console.log('Error');
+            return ;
     }
-    return map;
 }
 
